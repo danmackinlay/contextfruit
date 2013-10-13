@@ -1,0 +1,56 @@
+startshape BORDER
+
+background { b 1 a -1}
+rule BORDER {
+  10*[s .8 x 5] STICK {b 0.5 hue 30}
+}
+
+rule STICK {
+  STICK {y 1}
+  BLOCK{}
+}
+
+rule STICK 0.05 {
+}
+
+rule STICK 0.1 {
+  TURNSTICK {}
+}
+
+rule TURNSTICK {
+  LEFTSTICK {}
+}
+
+rule TURNSTICK {
+  LEFTSTICK {flip 90}
+}
+
+rule TURNSTICK 0.5{
+  LEFTSTICK {}
+  LEFTSTICK {flip 90}
+}
+
+rule LEFTSTICK {
+  JOIN {}
+  MIDDLESTICK [ rotate 30]
+}
+
+
+//middlestick rules make for shorter bits so our burder is straitish
+rule MIDDLESTICK {
+  MIDDLESTICK{y 1}
+  BLOCK{ }
+}
+
+rule MIDDLESTICK 0.1 {
+  JOIN {}
+  STICK [rotate -30]
+}
+
+rule BLOCK {
+  SQUARE {y 0.5}
+}
+
+rule JOIN {
+  CIRCLE {y 0}
+}

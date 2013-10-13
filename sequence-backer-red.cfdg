@@ -1,0 +1,32 @@
+startshape ARRAY
+
+background { b 1 }
+tile [s 5 ]
+
+rule ARRAY {
+  //10*[ x 2] BORDER {b 0.5 hue 30}
+  BORDER {b 0.5 hue 350  sat 1 rotate 15 a -0.8}
+}
+
+rule BORDER {
+  12*[ y 3.55 x 2.9]  COLOURPICKER {b 0.5 hue 30}
+}
+
+rule COLOURPICKER { COLOURPICKER {a 0.1}}
+rule COLOURPICKER { COLOURPICKER {a -0.1}}
+rule COLOURPICKER { DASH {}}
+
+rule DASH {
+  SQUARE { s 0.499 1.}
+  DASHTRANS{ a -0.01 }
+}
+
+rule DASHTRANS 2 {
+  DASH {x 0.5}
+}
+
+rule DASHTRANS {
+  DASH {x 1.5 s 0.8}
+}
+
+/* rule DASHTRANS 0.05  {}*/

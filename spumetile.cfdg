@@ -1,0 +1,69 @@
+startshape BLAT
+tile {s 5}
+
+background {a -1 b 1}
+
+rule BLAT {
+  BLAT{rotate 30}
+}
+
+rule BLAT {
+  BLAT{flip 0}
+}
+
+rule BLAT 2 {
+  BLAT{}
+  BLAT{rotate 20}
+}
+
+rule BLAT 3 {
+  SLURP {hue 350 sat 1. b 0.8}
+}
+
+rule SLURP {
+  CIRCLE {}
+  SLURP [x 0.1 size 0.95 0.93 ]
+}
+
+rule SLURP 0.1 {
+   DRIP {}
+}
+
+rule SLURP 0.1 {
+   SLURP {}
+   DRIP {}
+}
+
+rule DRIP {
+    CIRCLE {}
+    DRIPTRANSFORM {x 0.1 size 0.98}
+ }
+
+rule DRIPTRANSFORM {
+  DRIPTRANSFORM {rotate 3}
+}
+
+rule DRIPTRANSFORM  {
+  DRIPTRANSFORM {size 1.01}
+}
+rule DRIPTRANSFORM {
+  DRIPTRANSFORM {rotate -3}
+}
+
+rule DRIPTRANSFORM 0.1 {
+  DRIPTRANSFORM [x 3 size 0.2 flip 90]
+   DRIPTRANSFORM {}
+}
+
+rule DRIPTRANSFORM 0.02 {
+  DRIPTRANSFORM {rotate -10}
+  DRIPTRANSFORM {rotate -22}
+}
+
+rule DRIPTRANSFORM 2 {
+  DRIP{}
+}
+
+rule DRIPTRANSFORM 0.1 {
+   //CIRCLE {size 1.2}
+}

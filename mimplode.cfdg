@@ -1,0 +1,59 @@
+CF::Background = [hue 180 b 1 sat 0 a 0 ]
+CF::Impure = 1
+CentralHue = 240
+HueStep = 5
+SatStep = 0.05
+BrightStep = 0.05
+ColorShapeOffset=5
+startshape GroundZero
+ 
+shape GroundZero {
+	//loop i = 6 [rotate 60] Branch [[y 0.5]]
+	//Splat(10, 1.1) [[s 2 ]]
+	ColorArc [[sat .7 b .5 hue CentralHue]]
+}
+shape ColorArc {
+	CIRCLE [x ColorShapeOffset]
+	nCircs = floor((rand()^2)*8)
+	if (nCircs>0) {
+		Angle = atan(1/ColorShapeOffset)/nCircs
+		loop nCircs [r (Angle*rand(0.5, 1.5))] ColorArc [size 0.3 x ColorShapeOffset sat rand(-SatStep,SatStep) b rand(-BrightStep, BrightStep) h rand(-HueStep, HueStep)]
+	}
+}
+
+shape Branch {
+	Jag(1) [[]]
+	nBranches = randint(4)
+	if (nBranches>0) {
+		Angle = 120/nBranches
+		transform [r -50] {
+			loop nBranches [r Angle] Branch [x 1 s 0.8 ]
+		}
+	}	
+}
+path Jag(number length) {
+	JagOffsetY = rand( -0.4, 0.3)
+	JagOffsetX = rand( -0.2, 0.2)
+	MOVETO( 0, -0.5 )
+	LINETO(JagOffsetX-0.04, JagOffsetY-0.02)
+	LINETO(0, 0.5)
+	LINETO(JagOffsetX+0.04, JagOffsetY+0.02)
+	CLOSEPOLY()     // go back to (0.5, 0.5) and close the path
+	STROKE(0.1, CF::IsoWidth)[] 
+	//CF::ButtCap 
+}
+shape SplatRhombus(number Zed, number Dilate)  {
+	SQUARE [[sat 0 b 1 z Zed]]
+	SQUARE [[sat 0 b -1 z (-Zed) s Dilate]]
+}
+shape Splat(number Zed, number Dilate) {
+	Twist = 0.3
+	transform[trans (rand(-Twist,+Twist)) (rand(-Twist,+Twist)) (1+(rand(-Twist,+Twist))) (rand(-Twist,+Twist)) (1+(rand(-Twist,+Twist))) (1+(rand(-Twist,+Twist)))] { 
+		SplatRhombus(Zed, Dilate) [[]]
+		nBranches = rand(10)
+		if (nBranches>0) {
+			Angle = 360/nBranches
+			loop nBranches [r Angle] Splat((Zed + rand(-2.2)), Dilate*1.3) [ s 0.3 x 0.55 ]
+		}
+	}
+}

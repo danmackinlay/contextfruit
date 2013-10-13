@@ -1,0 +1,20 @@
+startshape FOREST
+
+rule FOREST {
+  FOREST_LEFT {}
+  FOREST_RIGHT{}
+}
+
+rule FOREST_LEFT {
+  FOREST_LEFT { x -0.5 size 0.9 }
+  TREE {}
+}
+
+rule FOREST_RIGHT {
+  /*FOREST_RIGHT { x -0.5 size 0.9 }*/
+  TREE {}*
+}
+
+rule TREE {
+  square {}
+}

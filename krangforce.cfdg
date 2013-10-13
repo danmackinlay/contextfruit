@@ -1,0 +1,62 @@
+startshape FOREST
+
+rule FOREST {
+  FOREST_LEFT {}
+  FOREST_RIGHT{}
+}
+
+rule FOREST_LEFT {
+  FOREST_LEFT [ x -0.8 size 0.7 ]
+  TREE {}
+}
+
+rule FOREST_LEFT {
+  FOREST_LEFT [ x -1 size 0.9 ]
+  TREE {}
+}
+
+rule FOREST_RIGHT {
+  FOREST_RIGHT [ x 1 size 0.9 ]
+  TREE {}
+}
+
+rule FOREST_RIGHT {
+  FOREST_RIGHT [ x 0.8 size 0.9 ]
+  TREE {}
+}
+
+rule TREE 20 {
+   STEM{}
+}
+
+rule TREE 1 {
+   STEM{}
+  ROOT {}
+}
+
+rule TREE 0.1 {
+   STEM{}
+  BRANCH {}
+}
+
+rule STEM {
+  CIRCLE [ size 1 2 ]
+  TREE [ y 0.5 size 0.97]
+}
+
+rule BRANCH {
+  TREE [rotate 24]
+  TREE [ flip 90 rotate 37]
+}
+
+rule BRANCH {
+  TREE {rotate 25}
+  TREE {flip 28  rotate 28}
+}
+
+rule FRUIT {}
+
+rule ROOT{
+  TREE [ y 0.2 size 0.97 rotate 3]
+  TREE [ flip 0 y 0.5 size 0.5 rotate 3]
+}

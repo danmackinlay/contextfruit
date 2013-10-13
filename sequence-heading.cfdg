@@ -1,0 +1,88 @@
+startshape COLOURISE 
+background { b 1 a -1 }
+
+rule COLOURISE {
+  DECKING {hue 10 sat 0.6 b 0.8 s 1 0.5}
+}
+
+rule DECKING {
+  16*[x .2 z 2] SIZER {}
+}
+
+rule BLOCK {
+  SQUARE {s .5 1}
+  SQUARE [ z -1 b -1 a -0.9 x 0.02 y 0.02 s 0.53 1.01]
+  SQUARE [ z -1 b -1 a -0.9 x -0.01 y -0.01 s 0.53 1.01]
+  EXISTER { x 0.5 }
+  EXISTER { x -0.5 }
+}
+rule EXISTER {
+  SHADER {}
+}
+rule EXISTER 2 {}
+
+rule SHADER {
+  SHADER{ sat -0.05 }
+}
+rule SHADER {
+  SHADER{ sat 0.05 }
+}
+rule SHADER {
+  SHADER{ b -0.02 }
+}
+rule SHADER {
+  SHADER{ b 0.05 }
+}
+rule SHADER {
+  SHADER{ h 1 }
+}
+rule SHADER {
+  SHADER{ h -1 }
+}
+rule SHADER {
+  SIZER {}
+}
+
+/*rule SIZER {
+  SIZER{ s 0.8 1 }
+}*/
+rule SIZER {
+  SIZER {s 0.8 1.1}
+}
+rule SIZER {
+  SIZER{ s 1 0.9}
+}
+/*rule SIZER {
+  SIZER{s 0.8}
+}*/
+rule SIZER {
+  JUGGLER {}
+}
+
+rule JUGGLER {
+  JUGGLER{ z 2 }
+}
+/*ule JUGGLER {
+  JUGGLER{ z -1 }
+}*/
+rule JUGGLER {
+  JUGGLER{ x 0.1 }
+}
+rule JUGGLER {
+  JUGGLER{ x -0.1 }
+}
+rule JUGGLER {
+  JUGGLER {y 0.05}
+}
+rule JUGGLER {
+  JUGGLER {y -0.05}
+}
+rule JUGGLER {
+  JUGGLER{rotate 4}
+}
+rule JUGGLER {
+  JUGGLER{rotate -4}
+}
+rule JUGGLER {
+  BLOCK {  }
+}

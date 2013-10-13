@@ -1,0 +1,43 @@
+startshape COLOUR
+
+background {a -1 b 1}
+
+rule COLOUR {
+  BLAT{hue 350 sat 1. b 0.8}
+}
+
+rule BLAT 5 {
+  BLAT{rotate 10}
+  SPREW{}
+}
+rule BLAT 5 {
+  BLAT{rotate -7}
+  SPREW{}
+}
+rule BLAT {
+  SPREW {}
+}
+
+rule SPREW {
+  CIRCLE {}
+  SPREWTRANSFORM {}
+}
+
+rule SPREWTRANSFORM 50 {
+  SPREWTRANSFORM{x 0.1}
+}
+rule SPREWTRANSFORM 1 {
+  SPREWTRANSFORM{x 1}
+}
+rule SPREWTRANSFORM 5 {
+  SPREWTRANSFORM{size 0.95}
+}
+rule SPREWTRANSFORM 4 {
+  SPREWTRANSFORM{size 1.05}
+}
+rule SPREWTRANSFORM {
+}
+rule SPREWTRANSFORM {
+  SPREW{}
+  BLAT{s 0.15}
+}

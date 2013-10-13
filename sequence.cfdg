@@ -1,0 +1,31 @@
+startshape ARRAY
+
+background { b 1 a -1}
+
+rule ARRAY {
+  10*[ x 5] BORDER {b 0.5 hue 30}
+}
+
+rule BORDER {
+  10*[ y 5]  COLOURPICKER {b 0.5 hue 30}
+}
+
+rule COLOURPICKER { COLOURPICKER {b 0.1}}
+rule COLOURPICKER { COLOURPICKER {b -0.1}}
+rule COLOURPICKER { DASH {}}
+
+rule DASH {
+  SQUARE {}
+  DASHTRANS{}
+}
+
+rule DASHTRANS {
+  DASH {x 0.1}
+}
+
+rule DASHTRANS {
+  DASH {x 1.0}
+}
+
+rule DASHTRANS {
+}

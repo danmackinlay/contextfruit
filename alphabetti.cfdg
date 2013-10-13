@@ -1,0 +1,134 @@
+startshape WORD
+
+background {alpha -1}
+
+rule WORD {
+  //SQUARE [z -10]
+  POSSUMPALACE {hue 10 sat 1.0 b 0.9}
+}
+rule POSSUMPALACE {
+  P[]
+  O[x 0.5]
+  S[x 1]
+  S[x 1.4 y -0.1 rotate -15]
+  U[x 1.95 y -0.15 rotate 10]
+  M[x 2.7]
+  P[y -1.5 x 0.1]
+  A[y -1.5 x 0.6]
+  L[y -1.6 x 1.35]
+  A[y -1.4 x 1.55]
+  C[y -1.3 x 2.2]
+  E[y -1.3 x 2.8 r -10]
+}
+
+rule A {
+  LINE[ x 0.18 r 20]
+  LINE[ x -0.18 r -20]
+  LINE[ y 0.1 s 0.4 0.7 rotate 90]
+}
+rule B {}
+rule C {
+  HOOK[ s 0.9 r -175]
+}
+rule D {}
+rule E {
+  LINE [x -0.25]
+  LINE [y -0.4 s 0.5 0.7 r 90]
+  LINE [y 0.1 s 0.5 0.7 r 90]
+  LINE [y 0.4 s 0.5 0.7 r 90]
+}
+rule F {}
+rule G {}
+rule H {}
+rule I {}
+rule J {}
+rule K {}
+rule L {
+  LINE [x -0.3]
+  LINE [y -0.4 s 0.6 0.7 r 90]
+}
+rule M {
+  LINE[ x 0.25]
+  LINE[ x -0.25]
+  LINE[x -0.15 y 0.2 s 0.6 rotate 30]
+  LINE[flip 90 x -0.15 y 0.2 s 0.6 rotate 30]
+}
+rule N {}
+rule O {
+  LOOP {}
+}
+rule P {
+  HOOK [ y 0.25 s 0.6 0.5]
+  LINE {}
+}
+rule Q {}
+rule R {}
+rule S {
+  HOOK [ s 0.7 rotate -20 s 0.75 x 0.2 y -0.7]
+  HOOK [s 0.7 rotate 160 s 0.75 x 0.2 y -0.7 ]
+}
+rule T {}
+rule U {
+  HORSESHOE[]
+}
+rule V {}
+rule W {}
+rule X {}
+rule Y {}
+rule Z {}
+
+rule HOOK {
+  POOK [ x -0.2 y -0.2 ]
+}
+
+//rule HOOK {
+//  CROOK {}
+//}
+rule POOK {
+  TRIANGLE [ s 0.2 y 4.5 r 180]
+   POOK [ r -7 s 0.95]
+}
+rule POOK {
+  POOK[b -0.05]
+}
+rule POOK {
+  POOK[b 0.05]
+}
+rule CROOK {
+}
+rule LINE {
+  SQUARE [s 0.08 1] 
+} 
+rule LINE {
+  LINE [r 2]
+}
+rule LINE {
+  TRIANGLE [y -0.1 s 0.08 1.2 ] 
+} 
+rule LINE {
+  LINE [flip 0]
+}
+rule LINE 2 {
+  LINE [b 0.05]
+}
+rule LINE 2 {
+  LINE [b -0.05]
+}
+rule LOOP {
+  HOOP [ y -0.5 s 0.9]
+}
+rule HOOP{
+  SEG []
+  SEG [flip 90]
+}
+rule SEG {
+  SQUARE [ s 0.15 0.2 y 4.5 r 180]
+  SEG {r 10 s 0.8 0.9}
+ }
+rule SEG { SEG[b -0.05] }
+rule SEG { SEG[b 0.05] }
+
+rule HORSESHOE {
+  SEG [y -0.4 s 0.8 1 x 0.2 r 35 ]
+  SEG [y -0.4 s 0.8 1 flip 90 x 0.2 r 35]
+}

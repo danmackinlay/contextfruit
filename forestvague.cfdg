@@ -1,0 +1,185 @@
+startshape FOREST
+
+rule FOREST {
+  FOREST_LEFT {}
+  FOREST_RIGHT{}
+}
+
+rule MICROCLIMATE {
+  MICROCLIMATE { b 0.1 sat 0.2 hue 1}
+}
+
+rule MICROCLIMATE {
+  MICROCLIMATE { b -0.07 sat -0.12 hue -1.5}
+}
+
+rule MICROCLIMATE {
+  PLANT {}
+  FOREST { size 0.15 b -0.6 y -1  sat -0.5}  
+}
+
+rule PLANT 5 {
+  GROWTH { b 0.4 sat 0.6 hue 80}
+}
+
+rule PLANT {
+  GROWTH { b 0.4 sat 0.6 hue 80}
+}
+
+rule PLANT 5 {
+  GROWTH { b 0.5 sat 0.7 hue 70}
+}
+
+rule PLANT {
+  PLANT [ x -0.8 b -0.1 size 0.8 ]
+  PLANT [ x  0.8 size 0.85 y -0.1 ]
+}
+
+rule FOREST_LEFT {
+  FOREST_LEFT { y -0.7}
+}
+
+rule FOREST_LEFT {
+  FOREST_LEFT { y 0.6}
+}
+
+rule FOREST_LEFT {
+  FOREST_LEFT [ x -0.8 size 0.7 ]
+  MICROCLIMATE {}
+}
+
+rule FOREST_LEFT {
+  FOREST_LEFT [ x -1 size 0.9 ]
+  MICROCLIMATE {}
+}
+
+rule FOREST_RIGHT {
+  FOREST_RIGHT { y -0.5}
+}
+
+rule FOREST_RIGHT {
+  FOREST_RIGHT { y 0.6}
+}
+
+rule FOREST_RIGHT {
+  FOREST_RIGHT [ x 1 size 0.9 ]
+  MICROCLIMATE {}
+}
+
+rule FOREST_RIGHT {
+  FOREST_RIGHT [ x 0.8 size 0.9 ]
+  MICROCLIMATE {}
+}
+
+rule GROWTH 50 {
+  TREE { b -0.01 h 1}
+}
+
+rule GROWTH 10 {
+  TREE { flip 90 b -0.01 }
+}
+
+rule GROWTH 1 {
+  TREE {}
+  VINE { size 0.5 hue 20 b -0.5}
+}
+
+rule TREE 10 {
+   STEM{}
+}
+ 
+rule TREE 1 {
+   STEM{}
+}
+
+rule TREE 1 {
+  BRANCH {}
+  LEAF {rotate 80 size 0.8}
+  LEAF {rotate -80 size 0.9}
+}
+
+rule TREE 1 {
+  LEAF {rotate 75 size 0.85}
+  BRANCH {}
+}
+
+rule STEM 50 {
+  CIRCLE [ size 1 2 ]
+  MERISTEM {}
+}
+
+
+rule MERISTEM {
+  GROWTH [rotate 3 y 0.5 size 0.97]
+}
+
+rule MERISTEM {
+  GROWTH [ rotate -4 y 0.5 size 0.97]
+}
+
+rule BRANCH {
+  GROWTH [ size 0.5 rotate 46 y 0.5]
+  GROWTH [ rotate -5 y 0.5 b -0.1]
+}
+
+rule BRANCH {
+  GROWTH [ size 0.7 rotate 25 y 0.5]
+  GROWTH [ size 0.7 flip 90 rotate 28 y 0.5]
+}
+
+rule FRUIT {
+  CIRCLE { x -1 size 1 1.2 hue 120 }
+}
+
+rule VINE {
+  VINE_R{ b 0.5}
+}
+
+rule VINE {
+  VINE_L{ b 0.5}
+}
+
+rule VINE_R 20 {
+  CIRCLE { y 0.5 size 1 1.5 }
+  VINE_R { y 0.5 size 0.99  rotate 5 sat -0.01 b -0.01}
+}
+
+rule VINE_R 1 {
+  CIRCLE { y 0.5 size 1 1.5 }
+  VINE_R { y 0.5 size 0.99  rotate 5 sat -0.01 b -0.01}
+  LEAF {rotate 75 size 0.85}
+  LEAF {rotate -75 size 0.85}
+}
+
+rule VINE_R 1 {
+  CIRCLE { y 0.5 size 1 1.5 }
+  VINE_L {  size 0.99 }
+  FRUIT {}
+}
+
+rule VINE_L 20 {
+  CIRCLE { y 0.5 size 1 1.5 }
+  VINE_L { y 0.5 size 0.99  rotate -5 sat -0.01 b -0.01}
+}
+
+rule VINE_L 1 {
+  CIRCLE { y 0.5 size 1 1.5 }
+  VINE_R { size 0.99 }
+  FRUIT { flip 90}
+}
+
+rule VINE_L 1 {
+  CIRCLE { y 0.5 size 1 1.5 }
+  VINE_L { y 0.5 size 0.99  rotate -5 sat -0.01 b -0.01}
+  LEAF {rotate 75 size 0.85}
+  LEAF {rotate -75 size 0.85}
+}
+
+rule LEAF {
+  LEAFMASS { size 2 y -0.5 b -0.5 sat 0.5}
+}
+
+rule LEAFMASS {
+  CIRCLE { y 1}
+  LEAFMASS [  size 0.7 y 0.8]
+}

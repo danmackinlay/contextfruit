@@ -1,0 +1,30 @@
+startshape HALF
+rule HALF {
+	QUAD { x -0.5 y -0.5 b 0.9 h 50 sat 0.8 }
+	QUAD { x  0.5 y -0.5 b 0.8 h 60 sat 0.9 }
+}
+rule WHOLE {
+	QUAD { x -0.5 y -0.5 }
+	QUAD { x  0.5 y -0.5 }
+	QUAD { x  0.5 y  0.5 }
+	QUAD { x -0.5 y  0.5 }
+}
+
+rule QUAD {
+	FILL { }
+}
+rule QUAD 5 {
+	WHOLE { size 0.45 r 2 sat 0.05 }
+}
+rule QUAD 1 {
+	WHOLE { size 0.45 r -3 b -0.1 }
+}
+rule QUAD 0.5 {
+	// nothing
+}
+
+rule FILL {
+	SQUARE {
+		size 0.8
+	}
+}

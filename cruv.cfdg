@@ -1,0 +1,18 @@
+startshape DRIFTER
+
+background {b 1 alpha -1}
+
+rule DRIFTER {
+  trunk {}
+  DRIFTER [rotate 10 x .9 size 0.9]
+}
+
+rule DRIFTER {
+  trunk {}
+  DRIFTER {}
+}
+
+
+rule trunk {
+  SQUARE {}
+}

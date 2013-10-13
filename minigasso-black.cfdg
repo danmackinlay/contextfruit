@@ -1,0 +1,55 @@
+startshape BLAT
+
+background {a 0 b -1}
+
+rule BLAT {
+   CORPUSCLE { h 15 sat 1 b 0.8 a 0.5}
+}
+
+rule CORPUSCLE {
+  CORRUSCATE{}
+  //SHRINKER { r 60}
+  SHRINKER { r 60}
+  SHRINKER { r -60}
+}
+rule SHRINKER 2 {
+  CORPUSCLE [x 0.95 s 0.7 z -2]
+}
+rule SHRINKER {
+}
+
+rule CORRUSCATE {
+  CORRUSCATE {h 5}
+}
+rule CORRUSCATE {
+  CORRUSCATE {h -5}
+}
+rule CORRUSCATE {
+  CORRUSCATE {b -0.05}
+}
+rule CORRUSCATE {
+  CORRUSCATE {b 0.06}
+}
+rule CORRUSCATE 3 {
+  CORRUSCATE {a -0.03}
+}
+rule CORRUSCATE  {
+  CORRUSCATE {x -0.56}
+}
+rule CORRUSCATE  {
+  CORRUSCATE {y -0.42}
+}
+rule CORRUSCATE  2 {
+  CORRUSCATE {r 17}
+}
+rule CORRUSCATE 2 {
+  CORRUSCATE {flip 90}
+}
+
+rule CORRUSCATE 0.3 {
+  DOT {}
+}
+
+rule DOT {
+  CIRCLE []
+}

@@ -1,0 +1,54 @@
+startshape METAPUDE
+
+background { b 1 a -1}
+
+rule METAPUDE {
+  6*{r 60} PUDE { y 3}
+}
+
+rule PUDE {
+  6*{ r 60 } PLUME {}
+}
+
+rule PLUME 5 {
+  LEFTPLUME {}
+}
+rule PLUME 5 {
+  LEFTPLUME {flip 90}
+}
+rule PLUME {
+  LEFTPLUME {flip 90 a -0.1}
+  LEFTPLUME {a -0.1}
+}
+
+rule LEFTPLUME {
+  DIANGLE {}
+  SCALELEFTPLUME [ rotate -3 a -0.01]
+}
+rule LEFTPLUME  {
+  DIANGLE {}
+  SCALELEFTPLUME [ rotate -1 a -0.01]
+}
+
+rule LEFTPLUME {
+  DIANGLE {}
+  SCALELEFTPLUME [ rotate -2 a -0.01]
+}
+
+rule SCALELEFTPLUME {
+  LEFTPLUME [ y 0.2 s 0.98]
+}
+
+rule LEFTPLUME 0.3 {
+  PLUME []
+}
+rule DIANGLE {
+  SIDE {rotate 30}
+  SIDE [rotate -30]
+}
+
+rule SIDE {
+  CIRCLE [ y 1 s 0.05]
+  CIRCLE [ y 0 s 0.05]
+  SQUARE [ y 0.5 size 0.05 1]
+}

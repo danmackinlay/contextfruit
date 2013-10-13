@@ -1,0 +1,49 @@
+startshape COLOURISE 
+background { b 1 a -1 }
+
+rule COLOURISE {
+   DECKING { hue 50 sat 0.8 b 0.8 z 8} 
+}
+
+rule ATOM1 {
+  SQUARE [ rotate 1 s 3 .4 skew 4 0 z -2]
+}
+rule ATOM2 {
+  TRIANGLE [ x -0.1 s 3 .5 flip 0 skew 5 0 rotate 25 b 0.2 sat 0.2 ]
+}
+rule MOLECULE { 
+  ATOM1 {rotate 4}
+  ATOM2 [x .9 y .7 rotate 90]
+}
+
+rule DECKING {
+  MOLECULE {}
+  SHADOW [ z -1 a -0.9 b -1 s 1.02 ]
+}
+rule DECKINGTRANS {
+  DECKINGTRANS{s 1.1 1}
+}
+rule DECKINGTRANS {
+  DECKINGTRANS{s 1 1.1}
+}
+rule DECKINGTRANS {
+  DECKINGTRANS{x 0.4}
+}
+rule DECKINGTRANS {
+  DECKINGTRANS{x -0.4}
+}
+rule DECKINGTRANS {
+  DECKINGTRANS{rotate 15}
+}
+rule DECKINGTRANS {
+  DECKINGTRANS{rotate -15}
+}
+
+rule DECKINGTRANS 4 { DECKING {}}
+
+
+rule SHADOW {
+  MOLECULE {x 0.02 y 0.02 }
+  MOLECULE {x -0.01 y 0.01 }
+  MOLECULE {x -0.01 y -0.01 }
+}

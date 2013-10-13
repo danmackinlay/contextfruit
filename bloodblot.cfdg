@@ -1,0 +1,106 @@
+startshape NEXUS
+background {a -1 b 1}
+rule NEXUS {
+  BLOT{ hue 10 sat 0.9 b 0.7 size 4}
+  //TRACER{}
+  //TRACER[r 90 flip 90]
+}
+
+rule TRACER {
+  TRACERTRANSFORMR{ b 0.7 z 100}
+}
+
+rule TRACERTRANSFORMR 0.5 {
+  TRACERTRANSFORMR { r 45}
+}
+
+rule TRACERTRANSFORMR 0.3 {
+  TRACERTRANSFORMR { r -45}
+}
+
+rule TRACERTRANSFORMR 0.2 {
+  TRACERTRANSFORMR { flip 0}
+  TRACERTRANSFORMR { }
+}
+
+
+rule TRACERTRANSFORMR 0.5 {
+}
+
+rule PROPAGATETRACER {
+  TRACERTRANSFORMR {x 1}
+  PLANK {}
+}
+
+rule PROPAGATETRACER {
+  TRACERTRANSFORMR {x 0.5}
+  HALFPLANK {}
+}
+rule TRACERTRANSFORMR 3 {
+  PROPAGATETRACER {}
+}
+
+rule PLANK {
+  SQUARE {size 1. 0.2 x 0.5}
+  CIRCLE {size 0.2 }
+}
+
+rule HALFPLANK {
+  SQUARE {size 0.5 0.2 x 0.25}
+  CIRCLE {size 0.2 }
+}
+
+rule BLOT 0.5 {
+  //CIRCLE { hue 10 sat 0.9 b 0.74 } 
+  SPILLTRANSFORMR [r 0]
+  //SPILLTRANSFORMR [r 60]
+  //SPILLTRANSFORMR [r 120]
+  //SPILLTRANSFORMR [r 180]
+  SPILLTRANSFORMR [r 240]
+  SPILLTRANSFORMR [r 300]
+}
+
+//various randomness
+rule SPILLTRANSFORMR 2 {
+  SPILLTRANSFORMR {r 5}
+}
+
+rule SPILLTRANSFORMR 3 {
+  SPILLTRANSFORMR {r 8}
+}
+
+rule SPILLTRANSFORMR {
+  SPILLTRANSFORMR {flip 0}
+}
+rule SPILLTRANSFORMR 0.1 {
+  SPILLTRANSFORMR {x -0.1}
+}
+
+rule SPILLTRANSFORMR 0.1 {
+  SPILLTRANSFORMR {x 0.5 size 1.2}
+}
+
+rule SPILLTRANSFORMR 0.4 {
+  SPILLTRANSFORMR {r -8}
+  SPILLTRANSFORMR {r 9}
+}
+
+rule SPILLTRANSFORMR 0.3 {
+}
+
+rule SPILLTRANSFORMR 0.1 {
+  SPILLTRANSFORMR {}
+  SPILLTRANSFORMR [x 2 size 0.1 ]
+}
+
+// enough randomness - draw something (put the 'mean transform' in here)
+rule SPILLTRANSFORMR {
+  SPILL {x 0.3 size 0.8 z 1}
+}
+
+rule SPILL {
+  SPILLTRANSFORMR {}
+  CIRCLE { size 1.5 1}        
+}
+
+
