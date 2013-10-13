@@ -4,20 +4,18 @@ CentralHue = 240
 HueStep = 5
 SatStep = 0.05
 BrightStep = 0.05
-ColorShapeOffset=5
 startshape GroundZero
  
 shape GroundZero {
 	//loop i = 6 [rotate 60] Branch [[y 0.5]]
 	//Splat(10, 1.1) [[s 2 ]]
-	ColorArc [[sat .7 b .5 hue CentralHue]]
+	ColorArc [[rotate 63 sat .7 b .5 hue CentralHue]]
 }
 shape ColorArc {
-	CIRCLE [x ColorShapeOffset]
-	nCircs = floor((rand()^2)*8)
-	if (nCircs>0) {
-		Angle = atan(1/ColorShapeOffset)/nCircs
-		loop nCircs [r (Angle*rand(0.5, 1.5))] ColorArc [size 0.3 x ColorShapeOffset sat rand(-SatStep,SatStep) b rand(-BrightStep, BrightStep) h rand(-HueStep, HueStep)]
+	CIRCLE []
+	nCols = rand(4)
+	if (nCols>0) {
+		loop nCols [x (rand(0.5, 1.5)*0.3) z 1] ColorArc [size 0.3 sat rand(-SatStep,SatStep) b rand(-BrightStep, BrightStep) h rand(-HueStep, HueStep)]
 	}
 }
 
